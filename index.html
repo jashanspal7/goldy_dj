@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GOLDY DJ NO-1 | Wedding & Event DJ Studio</title>
+  <meta name="description" content="GOLDY DJ NO-1 delivers unforgettable sound, lights, and music experiences for weddings, engagements, parties, and corporate events. Call 9814150088." />
+  <style>
+    :root{
+      --gold:#f8c64f;
+      --gold-light:#ffe9a6;
+      --ink:#101014;
+      --surface:#1a1a21;
+      --surface-2:#25252e;
+      --white:#fff;
+      --muted:#b8b8c3;
+      --pink:#e64d99;
+      --blue:#5a7cff;
+      --radius:22px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--white);
+      background:var(--ink);
+      overflow-x:hidden;
+      line-height:1.55;
+    }
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      z-index:-2;
+      background:
+        radial-gradient(circle at 13% 15%,rgba(230,77,153,.16),transparent 26rem),
+        radial-gradient(circle at 86% 28%,rgba(90,124,255,.15),transparent 28rem),
+        radial-gradient(circle at 50% 95%,rgba(248,198,79,.12),transparent 30rem),
+        #101014;
+    }
+    a{color:inherit;text-decoration:none}
+    button,input,select,textarea{font:inherit}
+    button{cursor:pointer}
+    img{display:block}
+    .container{width:min(1160px,calc(100% - 40px));margin:auto}
+    .section{padding:100px 0}
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:9px;
+      color:var(--gold);
+      font-size:.76rem;
+      font-weight:850;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+    }
+    .eyebrow::before{content:"";width:25px;height:2px;background:var(--gold);border-radius:10px}
+    h1,h2,h3{line-height:1.05}
+    h2{font-size:clamp(2.25rem,4.4vw,4.25rem);letter-spacing:-.055em}
+    .section-heading{max-width:690px;margin-bottom:50px}
+    .section-heading p{color:var(--muted);margin-top:18px;font-size:1.05rem}
+    .nav{
+      position:fixed;
+      top:0;
+      width:100%;
+      z-index:20;
+      padding:18px 0;
+      transition:.3s ease;
+    }
+    .nav.scrolled{
+      padding:12px 0;
+      background:rgba(16,16,20,.85);
+      border-bottom:1px solid rgba(255,255,255,.09);
+      backdrop-filter :blur(16px);
+    }
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .logo{display:flex;align-items:center;gap:11px;font-weight:900;letter-spacing:-.04em}
+    .logo-mark{
+      width:44px;height:44px;border-radius:50%;
+      display:grid;place-items:center;
+      color:#251b00;
+      background:linear-gradient(145deg,var(--gold-light),var(--gold));
+      box-shadow:0 5px 25px rgba(248,198,79,.35);
+    }
+    .logo-mark svg{width:29px;height:29px}
+    .logo-name{font-size:1rem;line-height:1}
+    .logo-name small{display:block;margin-top:5px;font-size:.58rem;letter-spacing:.19em;color:var(--gold)}
+    .nav-links{display:flex;align-items:center;gap:28px;color:#dedee6;font-size:.87rem;font-weight:700}
+    .nav-links a:hover{color:var(--gold)}
+    .nav-book,.btn-primary{
+      border:0;
+      padding:13px 20px;
+      border-radius:999px;
+      color:#191300;
+      background:linear-gradient(135deg,#ffeaac,var(--gold));
+      box-shadow:0 8px 22px rgba(248,198,79,.2);
+      font-size:.84rem;
+      font-weight:850;
+      transition:transform .2s,box-shadow .2s;
+    }
+    .nav-book:hover,.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(248,198,79,.32)}
+    .menu-button{display:none;border:0;background:transparent;color:white;font-size:1.6rem}
+    .hero{
+      min-height:760px;
+      display:flex;
+      align-items:center;
+      position:relative;
+      isolation:isolate;
+      padding:125px 0 55px;
+    }
+    .hero-image{
+      position:absolute;
+      z-index:-1;
+      width:min(66vw,850px);
+      height:680px;
+      top:70px;
+      right:-7vw;
+      overflow:hidden;
+      opacity:.84;
+      border-radius:55% 0 0 55%;
+      mask-image:linear-gradient(90deg,transparent 0%,#000 22%,#000 85%,transparent 100%);
+    }
+    .hero-image::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(90deg,#101014 0%,rgba(16,16,20,.1) 50%,rgba(16,16,20,.4));
+    }
+    .hero-image img{width:100%;height:100%;object-fit:cover}
+    .hero-content{max-width:730px}
+    .hero h1{margin:16px 0 24px;font-size:clamp(3.5rem,8vw,7.5rem);letter-spacing:-.075em}
+    .hero h1 span{color:transparent;-webkit-text-stroke:1.5px var(--gold);text-shadow:0 0 30px rgba(248,198,79,.15)}
+    .hero-text{max-width:525px;color:#d2d2db;font-size:1.1rem}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:33px}
+    .btn-outline{
+      padding:12px 20px;
+      border:1px solid rgba(255,255,255,.3);
+      border-radius:999px;
+      color:white;
+      background:rgba(255,255,255,.05);
+      font-size:.84rem;
+      font-weight:750;
+      transition:.2s;
+    }
+    .btn-outline:hover{border-color:white;color:#17171d;background:white}
+    .hero-details{display:flex;gap:32px;margin-top:62px}
+    .hero-detail{padding-left:13px;border-left:2px solid var(--gold)}
+    .hero-detail b{display:block;font-size:1.14rem}
+    .hero-detail span{color:var(--muted);font-size:.78rem}
+    .sound-wave{position:absolute;right:7%;bottom:22px;display:flex;align-items:center;gap:5px;height:60px;opacity:.7}
+    .sound-wave i{display:block;width:4px;height:25px;border-radius:8px;background:var(--gold);animation:wave 1s ease-in-out infinite alternate}
+    .sound-wave i:nth-child(1){height:19px;animation-delay:.1s}.sound-wave i:nth-child(2){height:44px;animation-delay:.35s}
+    .sound-wave i:nth-child(3){height:31px;animation-delay:.2s}.sound-wave i:nth-child(4){height:55px;animation-delay:.5s}
+    .sound-wave i:nth-child(5){height:27px;animation-delay:.15s}.sound-wave i:nth-child(6){height:42px;animation-delay:.6s}
+    .sound-wave i:nth-child(7){height:20px;animation-delay:.3s}
+    @keyframes wave{to{transform:scaleY(.45);opacity:.5}}
+    .marquee-wrap{overflow:hidden;border-top:1px solid rgba(255,255,255,.1);border-bottom:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.025)}
+    .marquee{display:flex;width:max-content;animation:scroll 27s linear infinite}
+    .marquee span{padding:18px 26px;color:rgba(255,255,255,.58);font-size:1.12rem;font-weight:900;letter-spacing:.08em}
+    .marquee b{color:var(--gold)}
+    @keyframes scroll{to{transform:translateX(-50%)}}
+    .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .service-card{
+      min-height:235px;
+      padding:29px;
+      border:1px solid rgba(255,255,255,.09);
+      border-radius:var(--radius);
+      background:linear-gradient(145deg,rgba(255,255,255,.085),rgba(255,255,255,.025));
+      transition:transform .25s,border-color .25s,background .25s;
+    }
+    .service-card:hover{transform:translateY(-7px);border-color:rgba(248,198,79,.52);background:rgba(248,198,79,.08)}
+    .service-icon{margin-bottom:35px;font-size:2rem}
+    .service-card h3{font-size:1.35rem;letter-spacing:-.04em}
+    .service-card p{margin-top:12px;color:var(--muted);font-size:.9rem}
+    .events{background:rgba(255,255,255,.025)}
+    .event-filter{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:28px}
+    .filter-btn{
+      padding:8px 15px;
+      border:1px solid rgba(255,255,255,.15);
+      border-radius:999px;
+      color:#c5c5ce;
+      background:transparent;
+      font-size:.82rem;
+      font-weight:700;
+      transition:.2s;
+    }
+    .filter-btn.active,.filter-btn:hover{border-color:var(--gold);color:#1d1704;background:var(--gold)}
+    .event-grid{display:grid;grid-template-columns:1.3fr .85fr .85fr;grid-template-rows:245px 245px;gap:16px}
+    .event-card{position:relative;min-height:200px;overflow:hidden;border-radius:20px;background:#24242a}
+    .event-card.large{grid-row:span 2}
+    .event-card img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+    .event-card:hover img{transform:scale(1.08)}
+    .event-card::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.8),transparent 65%)}
+    .event-caption{position:absolute;z-index:1;bottom:19px;left:20px}
+    .event-caption span{color:var(--gold);font-size:.7rem;font-weight:850;letter-spacing:.13em;text-transform:uppercase}
+    .event-caption h3{margin-top:3px;font-size:1.28rem}
+    .why-grid{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:60px}
+    .why-image{position:relative}
+    .why-image img{width:100%;height:520px;object-fit:cover;border-radius:28px;filter:saturate(.9)}
+    .badge{
+      position:absolute;
+      right:-20px;bottom:25px;
+      padding:19px 22px;
+      border-radius:17px;
+      color:#251b00;
+      background:var(--gold);
+      box-shadow:0 15px 38px rgba(0,0,0,.32);
+      font-weight:900;
+    }
+    .badge strong{display:block;font-size:2rem;line-height:1}
+    .badge span{font-size:.7rem;letter-spacing:.08em;text-transform:uppercase}
+    .feature{display:flex;gap:17px;padding:20px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+    .feature-num{color:var(--gold);font-size:1.1rem;font-weight:900}
+    .feature h3{font-size:1.03rem}
+    .feature p{margin-top:5px;color:var(--muted);font-size:.88rem}
+    .booking{padding:72px 0}
+    .booking-box{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:42px;
+      align-items:center;
+      padding:clamp(32px,5vw,64px);
+      overflow:hidden;
+      position:relative;
+      border:1px solid rgba(248,198,79,.3);
+      border-radius:30px;
+      background:linear-gradient(120deg,#2d2512,#1c1b22 58%,#202339);
+    }
+    .booking-box::after{
+      content:"";
+      position:absolute;
+      right:-80px;top:-150px;
+      width:370px;height:370px;
+      border:45px solid rgba(248,198,79,.1);
+      border-radius:50%;
+    }
+    .booking-copy,.booking-contact{position:relative;z-index:1}
+    .booking-copy h2{margin-top:13px}
+    .booking-copy p{max-width:560px;margin-top:16px;color:#d0ced4}
+    .booking-contact{
+      padding:27px;
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:20px;
+      background:rgba(0,0,0,.19);
+    }
+    .booking-contact small{display:block;color:var(--muted);font-size:.73rem;letter-spacing:.13em;text-transform:uppercase}
+    .booking-number{display:block;margin:7px 0 17px;color:var(--gold-light);font-size:clamp(1.55rem,3vw,2.25rem);font-weight:900;letter-spacing:-.06em}
+    .booking-number:hover{color:var(--gold)}
+    .booking-contact .btn-primary{display:inline-block}
+    footer{padding:27px 0;border-top:1px solid rgba(255,255,255,.1);color:#a9a9b4;font-size:.83rem}
+    .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:18px}
+    .footer-links{display:flex;gap:19px}
+    .footer-links a:hover{color:var(--gold)}
+    .call-float{
+      position:fixed;
+      z-index:15;
+      right:22px;bottom:22px;
+      display:flex;align-items:center;gap:9px;
+      padding:13px 18px;
+      border-radius:999px;
+      color:#211900;
+      background:var(--gold);
+      box-shadow:0 12px 35px rgba(0,0,0,.36);
+      font-size:.85rem;font-weight:900;
+      transition:transform .2s;
+    }
+    .call-float:hover{transform:translateY(-3px)}
+    .call-float svg{width:18px;height:18px;fill:currentColor}
+    @media (max-width:850px){
+      .nav-links,.nav-book{display:none}
+      .menu-button{display:block}
+      .nav-links.mobile-open{
+        display:flex;
+        position:absolute;
+        top:62px;left:20px;right:20px;
+        flex-direction:column;
+        align-items:stretch;
+        gap:5px;
+        padding:15px;
+        border:1px solid rgba(255,255,255,.1);
+        border-radius:16px;
+        background:#1b1b22;
+        box-shadow:0 18px 35px rgba(0,0,0,.3);
+      }
+      .nav-links.mobile-open a{padding:10px}
+      .hero{min-height:720px}
+      .hero-image{width:92vw;right:-28vw;opacity:.45}
+      .services-grid{grid-template-columns:1fr 1fr}
+      .event-grid{grid-template-columns:1fr 1fr;grid-template-rows:260px 210px 210px}
+      .event-card.large{grid-row:span 2}
+      .why-grid,.booking-box{grid-template-columns:1fr;gap:38px}
+      .why-image img{height:410px}
+      .booking-box{gap:28px}
+    }
+    @media (max-width:560px){
+      .container{width:min(100% - 30px,1160px)}
+      .section{padding:76px 0}
+      .hero{min-height:690px;padding-top:118px}
+      .hero h1{font-size:clamp(3.15rem,16vw,4.5rem)}
+      .hero-text{font-size:1rem}
+      .hero-details{gap:17px;margin-top:47px}
+      .hero-detail b{font-size:1rem}
+      .hero-detail span{font-size:.7rem}
+      .sound-wave{display:none}
+      .services-grid{grid-template-columns:1fr}
+      .event-grid{grid-template-columns:1fr;grid-template-rows:280px 210px 210px 210px 210px}
+      .event-card.large{grid-row:span 1}
+      .event-card{min-height:unset}
+      .why-image img{height:345px}
+      .badge{right:12px;bottom:13px}
+      .footer-inner{flex-direction:column;align-items:flex-start}
+      .call-float{right:15px;bottom:15px;padding:13px 15px}
+      .call-float span{display:none}
+    }
+  </style>
+</head>
+<body>
+  <header class="nav" id="navbar">
+    <div class="container nav-inner">
+      <a class="logo" href="#home" aria-label="GOLDY DJ NO-1 home">
+        <span class="logo-mark">
+          <svg viewBox="0 0 48 48" aria-hidden="true">
+            <path d="M24 5a19 19 0 1 0 19 19A19 19 0 0 0 24 5Zm0 7a12 12 0 1 1-12 12 12 12 0 0 1 12-12Zm0 7a5 5 0 1 0 5 5 5 5 0 0 0-5-5Z" fill="currentColor"/>
+            <path d="M31 9v18.5a5.8 5.8 0 1 1-3-5.06V12l10-3v17.5a5.8 5.8 0 1 1-3-5.06V9.9Z" fill="#101014"/>
+          </svg>
+        </span>
+        <span class="logo-name">GOLDY DJ NO-1<small>DJ & EVENT STUDIO</small></span>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="#services">Services</a>
+        <a href="#events">Events</a>
+        <a href="#about">Why Us</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="nav-book" href="tel:9814150088">Call 9814150088</a>
+      <button class="menu-button" id="menuButton" aria-label="Open navigation" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=1400&q=85" alt="DJ performing with vibrant lights at an event" />
+      </div>
+      <div class="container">
+        <div class="hero-content">
+          <span class="eyebrow">Premium Sound. Unmatched Energy.</span>
+          <h1>Turn moments into <span>memories.</span></h1>
+          <p class="hero-text">From your first dance to the final beat, GOLDY DJ NO-1 brings professional sound, stunning lights, and the perfect music to every celebration.</p>
+          <div class="hero-actions">
+            <a class="btn-primary" href="#contact">Book Your Event</a>
+            <a class="btn-outline" href="tel:9814150088">Call: 9814150088</a>
+          </div>
+          <div class="hero-details">
+            <div class="hero-detail"><b>Wedding Ready</b><span>Music for every moment</span></div>
+            <div class="hero-detail"><b>Pro Equipment</b><span>Crystal clear sound & lights</span></div>
+            <div class="hero-detail"><b>Easy Booking</b><span>Call us anytime</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="sound-wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    </section>
+
+    <div class="marquee-wrap" aria-label="Our event specialties">
+      <div class="marquee">
+        <span>WEDDINGS <b>✦</b></span><span>ENGAGEMENTS <b>✦</b></span><span>DJ NIGHTS <b>✦</b></span><span>PRIVATE PARTIES <b>✦</b></span><span>CORPORATE EVENTS <b>✦</b></span>
+        <span>WEDDINGS <b>✦</b></span><span>ENGAGEMENTS <b>✦</b></span><span>DJ NIGHTS <b>✦</b></span><span>PRIVATE PARTIES <b>✦</b></span><span>CORPORATE EVENTS <b>✦</b></span>
+      </div>
+    </div>
+
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">What We Do</span>
+          <h2>Everything your celebration needs.</h2>
+          <p>Professional DJ solutions designed around your occasion, your guests, and your favourite music.</p>
+        </div>
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="service-icon">💍</div>
+            <h3>Wedding DJ</h3>
+            <p>Beautiful ceremony music, unforgettable sangeet beats, and a packed dance floor from start to finish.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon">✨</div>
+            <h3>Engagement Events</h3>
+            <p>Set the perfect mood for your ring ceremony with elegant audio, lighting, and curated entertainment.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon">🎉</div>
+            <h3>Parties & Functions</h3>
+            <p>High-energy music and polished production for birthdays, anniversaries, and private celebrations.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon">🔊</div>
+            <h3>Sound & Lighting</h3>
+            <p>Reliable premium speakers, wireless microphones, stage lighting, and visual effects for every venue.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon">🏢</div>
+            <h3>Corporate Events</h3>
+            <p>Professional AV support and music for launches, award nights, office parties, and brand events.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon">🎵</div>
+            <h3>Custom Playlists</h3>
+            <p>Your soundtrack, your way. Share your favourites and let us create a smooth, crowd-friendly flow.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section events" id="events">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Event Moments</span>
+          <h2>Made for every kind of celebration.</h2>
+          <p>Explore the energy, color, and unforgettable atmosphere we bring to each function.</p>
+        </div>
+        <div class="event-filter">
+          <button class="filter-btn active" data-filter="all">All Events</button>
+          <button class="filter-btn" data-filter="wedding">Weddings</button>
+          <button class="filter-btn" data-filter="engagement">Engagements</button>
+          <button class="filter-btn" data-filter="party">Parties</button>
+        </div>
+        <div class="event-grid">
+          <article class="event-card large" data-category="wedding">
+            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=85" alt="Wedding couple celebrating under lights" />
+            <div class="event-caption"><span>Wedding Celebration</span><h3>Your big day, amplified</h3></div>
+          </article>
+          <article class="event-card" data-category="engagement">
+            <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=700&q=85" alt="Elegant engagement function venue" />
+            <div class="event-caption"><span>Engagement</span><h3>Celebrate love</h3></div>
+          </article>
+          <article class="event-card" data-category="party">
+            <img src="https://images.unsplash.com/photo-1571266028243-d220c9c3b0d7?auto=format&fit=crop&w=700&q=85" alt="Colorful party dance floor" />
+            <div class="event-caption"><span>Party Night</span><h3>Feel the beat</h3></div>
+          </article>
+          <article class="event-card" data-category="wedding">
+            <img src="https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=700&q=85" alt="Wedding celebration decorations" />
+            <div class="event-caption"><span>Wedding</span><h3>Lights & romance</h3></div>
+          </article>
+          <article class="event-card" data-category="party">
+            <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=700&q=85" alt="Live music event crowd" />
+            <div class="event-caption"><span>Live Event</span><h3>Energy on demand</h3></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container why-grid">
+        <div class="why-image">
+          <img src="https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?auto=format&fit=crop&w=1000&q=85" alt="Professional DJ mixing music at a live celebration" />
+          <div class="badge"><strong>100%</strong><span>Party Energy</span></div>
+        </div>
+        <div>
+          <span class="eyebrow">Why GOLDY DJ NO-1</span>
+          <h2 style="margin-top:13px">Professional, personal, and easy to book.</h2>
+          <div style="margin-top:24px">
+            <div class="feature">
+              <span class="feature-num">01</span>
+              <div><h3>Music that fits your crowd</h3><p>From classic wedding songs to the newest dance hits, every set is tailored to your celebration.</p></div>
+            </div>
+            <div class="feature">
+              <span class="feature-num">02</span>
+              <div><h3>Dependable event production</h3><p>Quality equipment, timely setup, and seamless handling so you can focus on your guests.</p></div>
+            </div>
+            <div class="feature">
+              <span class="feature-num">03</span>
+              <div><h3>Simple communication</h3><p>Planning is easy. Call GOLDY DJ NO-1 directly and let us take care of the soundtrack.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="booking" id="contact">
+      <div class="container">
+        <div class="booking-box">
+          <div class="booking-copy">
+            <span class="eyebrow">Let's Make It Happen</span>
+            <h2>Your next great event starts with one call.</h2>
+            <p>Tell us about your wedding, engagement, party, or special function. We will help you create a celebration your guests will remember.</p>
+          </div>
+          <div class="booking-contact">
+            <small>Call GOLDY DJ NO-1</small>
+            <a class="booking-number" href="tel:9814150088">9814150088</a>
+            <a class="btn-primary" href="tel:9814150088">Call to Book Now</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <p>© 2024 GOLDY DJ NO-1. Soundtrack your celebration.</p>
+      <div class="footer-links">
+        <a href="#services">Services</a>
+        <a href="#events">Events</a>
+        <a href="tel:9814150088">9814150088</a>
+      </div>
+    </div>
+  </footer>
+
+  <a class="call-float" href="tel:9814150088" aria-label="Call GOLDY DJ NO-1 at 9814150088">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.46 15.46 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24 11.38 11.38 0 0 0 3.57.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.38 11.38 0 0 0 .57 3.57 1 1 0 0 1-.24 1.01l-2.21 2.2Z"/></svg>
+    <span>9814150088</span>
+  </a>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    const menuButton = document.getElementById('menuButton');
+    const navLinks = document.getElementById('navLinks');
+
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 28);
+    });
+
+    menuButton.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('mobile-open');
+      menuButton.setAttribute('aria-expanded', open);
+      menuButton.textContent = open ? '✕' : '☰';
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('mobile-open');
+        menuButton.setAttribute('aria-expanded', 'false');
+        menuButton.textContent = '☰';
+      });
+    });
+
+    const buttons = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.event-card');
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        buttons.forEach(item => item.classList.remove('active'));
+        button.classList.add('active');
+        const filter = button.dataset.filter;
+        cards.forEach(card => {
+          const show = filter === 'all' || card.dataset.category === filter;
+          card.style.display = show ? '' : 'none';
+        });
+      });
+    });
+  </script>
+</body>
+</html>
